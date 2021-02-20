@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Home from './pages/Home';
+import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import SearchPage from './pages/SearchPage';
+import About from './pages/About';
+import Footer from './components/Footer';
+import { Helmet } from 'react-helmet';
+function App() { 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Helmet>
+        <title>Faouzi's Google</title>
+      </Helmet>
+      <Router>
+
+        <Switch>
+
+          <Route path="/search">
+            {/* search page */}
+            <SearchPage/>
+          </Route>
+          <Route path="/about">
+            
+            <About/>
+          </Route>
+          <Route path="/">
+            <Home/>
+          </Route>
+          
+        </Switch>
+
+      </Router>
+      <Footer children="Custom Google version made By Faouzi Elbakri "/>
     </div>
   );
 }

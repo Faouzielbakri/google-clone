@@ -4,6 +4,6 @@ i created this whole site using reactjs and firebase to deploy it online which y
 
 # if you want you can you this same projet to deploy you own version 
 
-just remember thath you should put your own api key in ./keys.js file 
+just remember thath you should put your own api key in [./src/keys.js](https://github.com/Faouzielbakri/google-clone/blob/main/src/keys.js) file 
 
 

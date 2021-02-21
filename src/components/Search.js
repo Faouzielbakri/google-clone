@@ -16,7 +16,7 @@ function Search({hidebuttons = false,query=''}) {
     const search = (e) => {
         e.preventDefault();
 
-        console.log("you hit it >> ",input)
+//         console.log("you hit it >> ",input)
 
         dispatch ({
             type : actionTypes.SET_SEARCH_TERM,

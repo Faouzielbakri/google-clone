@@ -20,7 +20,7 @@ function About() {
             <center>
                 <div className="container">
                     <h3>Who am i ?</h3>
-                    <div class="card " style={{width:"20rem"}}>
+                    <div class="card " style={{width:"20rem",height:"650px"}}>
                         <img src={me} class="card-img-top" alt="Faouzi" />
                         <div class="card-body  border-2">
                             <h5 class="card-title">Faouzi ELBAKRI</h5>

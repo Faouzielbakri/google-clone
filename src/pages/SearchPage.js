@@ -2,7 +2,7 @@ import React from 'react';
 import './SearchPage.css';
 import { useStateValue } from "../StateProvider";
 import useGoogleSearch from '../useGoogleSearch';
-import logo from '../media/googlelogo.png';
+import logo from '../media/googlelogoFaouzi.png';
 import { Link } from 'react-router-dom';
 import Search from '../components/Search';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
@@ -11,17 +11,17 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import PlayCircleOutlineRoundedIcon from '@material-ui/icons/PlayCircleOutlineRounded';
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { Helmet } from 'react-helmet';
-
+import Response from '../response';
 function SearchPage() {
 
-    const [{ term },dispatch]=useStateValue();
+    const [{ term },dispatch]= useStateValue();
     const {data}= useGoogleSearch(term); // LIVE CALL
     // const data = Response
     
     return (
         <div className="searchPage">
             <Helmet>
-                <title>Faouzi's Google</title>
+                <title>{`Results of : ${term}`}</title>
             </Helmet>
             <div className="searchPage__header">
             <Link to="/">
@@ -37,24 +37,24 @@ function SearchPage() {
                     
                     <div className="searchPage__optionsleft">
                         
-                        <div className="searchPage__option"><SearchRoundedIcon fontSize="small" />
-                        <Link to="/all">All </Link></div>
+                        <div className="searchPage__option text-blue"><SearchRoundedIcon fontSize="small" />
+                        <a href="/all" dis>All </a></div>
                         <div className="searchPage__option"><ImageOutlinedIcon fontSize="small"/>
-                        <Link to="/images">Images </Link></div>
+                        <a href={`https://www.google.com/search?tbm=isch&q${term}`}>Images </a></div>
                         <div className="searchPage__option"><DescriptionOutlinedIcon fontSize="small"/>
-                        <Link to="/news">News </Link></div>
+                        <a href="https://news.google.com/">News </a></div>
                         <div className="searchPage__option"><PlayCircleOutlineRoundedIcon fontSize="small"/>
-                        <Link to="/videos">Videos </Link></div>
+                        <a href={`https://www.google.com/search?q${term}&tbm=vid`}>Videos </a></div>
                         <div className="searchPage__option"><MoreVertIcon fontSize="small"/>
-                        <Link to="/more">More </Link></div>
+                        <a href="/about">More </a></div>
 
                     </div>
                     <div className="searchPage__optionsright">
                         <div className="searchPage__option">
-                            <Link to="/settings" >Settings</Link>
+                            <a href="https://myaccount.google.com/security" >Settings</a>
                         </div>
                         <div className="searchPage__option">
-                        <Link to="/tools" >Tools</Link></div>
+                        <a href="https://apps.google.com/" >Tools</a></div>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@ function SearchPage() {
             </div>
             
             {true && (
-                <div className="searchPage__reasuls">
+                <div className="searchPage__reasuls ">
                 <p className="searchPage__resultCount" style={{fontSize:'14px'}}>
                     {`About ${data?.searchInformation.formattedTotalResults} 
                      results (${data?.searchInformation.searchTime.toFixed(2)} seconds)`}
@@ -77,7 +77,7 @@ function SearchPage() {
                             {item.displayLink}
                             </a>
                             <a className="searchPage__resultTitle" href={item.link}>
-                                <h2>{`${item.title.length>60 ? (item.title.substring(0,55).concat('...')) : (item.title) }`}</h2>
+                                <h2>{`${item.title.length > 60 ? (item.title.substring(0,55).concat('...')) : (item.title) }`}</h2>
                             </a>
                             <p className="searchPage__resultSnippet">
                                 {item.snippet}
@@ -91,6 +91,3 @@ function SearchPage() {
         </div>
     )
 }
-
-export default SearchPage
-// AIzaSyC2jyRqiA-M2Loqe744BGJybHkc6w0XCNk

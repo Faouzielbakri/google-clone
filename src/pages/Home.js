@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import  AppsIcon  from "@material-ui/icons/Apps";
 import { Avatar } from '@material-ui/core';
 import Search from '../components/Search';
-import logo from '../media/googlelogo.png';
+import logo from '../media/googlelogoFaouzi.png';
 import avatar from '../media/avatar.jpeg';
 import { Helmet } from 'react-helmet';
 

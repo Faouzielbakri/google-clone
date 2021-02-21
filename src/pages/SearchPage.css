@@ -18,11 +18,11 @@
     align-items: center ;
     margin-left: 35vw !important;
 } */
-.searchPage__logo{
+.searchPage__header > a > img{
     object-fit: contain;
-    height: 30px;
+    height: 40px;
     margin-top: 5px;
-    margin-right: 50px ;
+    margin-right: 40px ;
 }
 .searchPage__headerBody > .search > .search__input{
     margin-top: 0;
@@ -47,7 +47,6 @@
 }
 .searchPage__optionsright, 
 .searchPage__optionsleft{
-    
     display: flex;
 }
 .searchPage__optionsright{
@@ -58,6 +57,7 @@
     align-items: center;
     margin-right: 20px;
     margin-bottom:0 ;
+    cursor: pointer;
 }
 .searchPage__option a{
     margin-left: 2px;
@@ -71,16 +71,19 @@
     font-size: 18px;
 }
 .searchPage__reasuls{
-    max-width: 600px;
-    margin-top: 7px;
-    margin-left: 180px;
+    max-width: 30%;
+    margin-top: 7 px;
+    margin-left: 8%;
     margin-bottom: 100px;
 }
+
 .searchPage__result > a{
     text-decoration: none;
+    
 }
 .searchPage__resultTitle {
-    color :#1a0dab;
+    /* color :#1a0dab; */
+    color :var(--bs-purple);
     margin-bottom: 0 !important;
 }
 
@@ -95,3 +98,61 @@
     margin-top: 5px;
     font-weight: 450;
 }
+.searchPage__option .text-blue > a{
+    pointer-events: none;
+    cursor: default;
+}
+@media only screen and (max-width: 900px) {
+    .searchPage__reasuls {
+      max-width: 80vw;
+    }
+    .searchPage__header {
+        object-fit: contain;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding:5px;
+        padding-bottom: 0;
+    }
+    .searchPage__header > a > img{
+        height: 60px;
+        margin: auto;
+        margin-bottom: 10px;
+        padding-bottom: 0;
+    }
+    .searchPage__headerBody{
+        display: flex;
+        flex-direction: column;
+        max-width: 90vw;
+        
+    }
+    .searchPage__options{
+        display: flex;
+        justify-content: center;
+        min-width: 100%;
+        max-width: 95vw;
+        margin-left: unset;
+        font-size: 14px;
+        align-items: center;
+    }
+    .searchPage__option{
+        padding-top: 10px;
+        margin-right: 0px;
+        padding-right: 5px;
+        padding-left: 5px;
+        /* border-right: 1px solid lightgrey ; */
+    }
+    .searchPage__option > svg{ 
+        display: none;
+    }
+    .searchPage__optionsleft{
+    }
+    .searchPage__optionsright{
+        margin-left: unset;
+    }
+    .searchPage__headerBody > .search{
+
+        height: 55px;
+    }
+  }
